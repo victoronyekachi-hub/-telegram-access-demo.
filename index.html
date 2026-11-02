@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Telegram Access Demo</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: #eef3f8;
+  color: #222;
+  min-height: 100vh;
+}
+.header {
+  background: #229ed9;
+  color: white;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 21px;
+  font-weight: bold;
+}
+.logo {
+  background: white;
+  color: #229ed9;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+.container {
+  max-width: 440px;
+  margin: 55px auto;
+  padding: 20px;
+}
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+  box-shadow: 0 5px 25px rgba(0,0,0,.07);
+}
+.preview {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+h2 {
+  margin-bottom: 12px;
+}
+p {
+  color: #697783;
+  line-height: 1.6;
+  font-size: 14px;
+}
+button {
+  background: #229ed9;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 15px;
+  border-radius: 9px;
+  margin-top: 22px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover {
+  background: #1688c5;
+}
+.notice {
+  background: #fff7df;
+  color: #795b12;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 18px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+#loginScreen {
+  display: none;
+}
+.demo-field {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #d9e1e8;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-size: 15px;
+}
+.status {
+  margin-top: 20px;
+  color: #1688c5;
+  font-weight: bold;
+}
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: #87939d;
+  font-size: 12px;
+}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="logo">➤</div>
+  Telegram Access Demo
+</header>
+<main class="container">
+  <section class="card" id="postScreen">
+<h2>Shared Post</h2>
+<p>
+  You've received a shared post.
+  Open the preview below to explore the demonstration.
+</p>
+<img
+  class="preview"
+  src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800"
+  alt="Sample shared landscape"
+>
+<h3>Exclusive Photo Preview</h3>
+<p>
+  This is a sample post created for our educational
+  access simulation.
+</p>
+<button onclick="showDemo()">
+  Continue to Demo
+</button>
+<div class="notice">
+  EDUCATIONAL DEMO: This is not an official Telegram
+  login page. No real account credentials are requested.
+</div>
+  </section>
+  <section class="card" id="loginScreen">
+<div class="logo" style="margin:auto;background:#229ed9;color:white">
+  ➤
+</div>
+<h2 style="margin-top:18px">
+  Demo Access
+</h2>
+<p>
+  Enter a display name to continue the demonstration.
+  No Telegram account is required.
+</p>
+<input
+  class="demo-field"
+  id="displayName"
+  type="text"
+  placeholder="Enter a demo display name"
+  maxlength="40"
+>
+<button onclick="completeDemo()">
+  Continue
+</button>
+<div class="status" id="result"></div>
+<div class="notice">
+  Never enter your real Telegram password,
+  phone number or verification code into unofficial websites.
+</div>
+  </section>
+</main>
+<footer class="footer">
+  Independent Educational Project · Not affiliated with Telegram
+</footer>
+<script>
+function showDemo() {
+  document.getElementById("postScreen").style.display = "none";
+  document.getElementById("loginScreen").style.display = "block";
+}
+function completeDemo() {
+  const name = document.getElementById("displayName").value.trim();
+  const result = document.getElementById("result");
+  if (!name) {
+    result.textContent = "Please enter a demo display name.";
+    return;
+  }
+  result.textContent = "Demo completed successfully, " + name + "!";
+}
+</script>
+</body>
+</html>
